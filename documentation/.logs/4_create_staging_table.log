@@ -1,0 +1,40 @@
+erreduarte
+*** Found local files:
+***   * /home/erreduarte/airflow/logs/dag_id=open_weather_DAG/run_id=scheduled__2024-10-06T08:00:00+00:00/task_id=Create_Staging_Table/attempt=2.log
+[2024-10-06T10:02:14.350+0100] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-06T10:02:14.399+0100] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: open_weather_DAG.Create_Staging_Table scheduled__2024-10-06T08:00:00+00:00 [queued]>
+[2024-10-06T10:02:14.417+0100] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: open_weather_DAG.Create_Staging_Table scheduled__2024-10-06T08:00:00+00:00 [queued]>
+[2024-10-06T10:02:14.417+0100] {taskinstance.py:2865} INFO - Starting attempt 2 of 6
+[2024-10-06T10:02:14.446+0100] {taskinstance.py:2888} INFO - Executing <Task(_PythonDecoratedOperator): Create_Staging_Table> on 2024-10-06 08:00:00+00:00
+[2024-10-06T10:02:14.453+0100] {standard_task_runner.py:72} INFO - Started process 2550319 to run task
+[2024-10-06T10:02:14.456+0100] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'open_weather_DAG', 'Create_Staging_Table', 'scheduled__2024-10-06T08:00:00+00:00', '--job-id', '755', '--raw', '--subdir', 'DAGS_FOLDER/DAG_OPEN_WEATHER.py', '--cfg-path', '/tmp/tmpds5zj4e2']
+[2024-10-06T10:02:14.457+0100] {standard_task_runner.py:105} INFO - Job 755: Subtask Create_Staging_Table
+[2024-10-06T10:02:14.631+0100] {task_command.py:467} INFO - Running <TaskInstance: open_weather_DAG.Create_Staging_Table scheduled__2024-10-06T08:00:00+00:00 [running]> on host erreduarte
+[2024-10-06T10:02:14.893+0100] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='renanduarte' AIRFLOW_CTX_DAG_ID='open_weather_DAG' AIRFLOW_CTX_TASK_ID='Create_Staging_Table' AIRFLOW_CTX_EXECUTION_DATE='2024-10-06T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-06T08:00:00+00:00'
+[2024-10-06T10:02:14.894+0100] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-06T10:02:14.945+0100] {base.py:84} INFO - Retrieving connection 'microsoft_azure_database'
+[2024-10-06T10:02:15.765+0100] {sql.py:531} INFO - Running statement: 
+                    CREATE TABLE 
+                        dbo.OpenWeatherData_staging(
+                            timestamp smalldatetime,
+                            id int,
+                            country varchar(5),
+                            city varchar(20),
+                            main_temp float,
+                            temp_min float,
+                            temp_max float,
+                            cloudiness int,
+                            humidity float,
+                            wind_speed float,
+                            rain float,
+                            main varchar(20),
+                            weather_description varchar(35),
+                            longitude float,
+                            latitude float);                
+                , parameters: None
+[2024-10-06T10:02:15.926+0100] {python.py:240} INFO - Done. Returned value was: Staging table created successfully
+[2024-10-06T10:02:16.030+0100] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-06T10:02:16.031+0100] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=open_weather_DAG, task_id=Create_Staging_Table, run_id=scheduled__2024-10-06T08:00:00+00:00, execution_date=20241006T080000, start_date=20241006T090214, end_date=20241006T090216
+[2024-10-06T10:02:16.072+0100] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-06T10:02:16.157+0100] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-10-06T10:02:16.178+0100] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,43 @@
+erreduarte
+*** Found local files:
+***   * /home/erreduarte/airflow/logs/dag_id=open_weather_DAG/run_id=scheduled__2024-10-06T08:00:00+00:00/task_id=Load_to_DB/attempt=1.log
+[2024-10-06T10:02:19.699+0100] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-06T10:02:19.761+0100] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: open_weather_DAG.Load_to_DB scheduled__2024-10-06T08:00:00+00:00 [queued]>
+[2024-10-06T10:02:19.782+0100] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: open_weather_DAG.Load_to_DB scheduled__2024-10-06T08:00:00+00:00 [queued]>
+[2024-10-06T10:02:19.782+0100] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2024-10-06T10:02:19.813+0100] {taskinstance.py:2888} INFO - Executing <Task(_PythonDecoratedOperator): Load_to_DB> on 2024-10-06 08:00:00+00:00
+[2024-10-06T10:02:19.820+0100] {standard_task_runner.py:72} INFO - Started process 2550345 to run task
+[2024-10-06T10:02:19.824+0100] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'open_weather_DAG', 'Load_to_DB', 'scheduled__2024-10-06T08:00:00+00:00', '--job-id', '757', '--raw', '--subdir', 'DAGS_FOLDER/DAG_OPEN_WEATHER.py', '--cfg-path', '/tmp/tmpjtnk9lvp']
+[2024-10-06T10:02:19.825+0100] {standard_task_runner.py:105} INFO - Job 757: Subtask Load_to_DB
+[2024-10-06T10:02:20.008+0100] {task_command.py:467} INFO - Running <TaskInstance: open_weather_DAG.Load_to_DB scheduled__2024-10-06T08:00:00+00:00 [running]> on host erreduarte
+[2024-10-06T10:02:20.271+0100] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='renanduarte' AIRFLOW_CTX_DAG_ID='open_weather_DAG' AIRFLOW_CTX_TASK_ID='Load_to_DB' AIRFLOW_CTX_EXECUTION_DATE='2024-10-06T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-06T08:00:00+00:00'
+[2024-10-06T10:02:20.273+0100] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-06T10:02:20.334+0100] {base.py:84} INFO - Retrieving connection 'microsoft_azure_database'
+[2024-10-06T10:02:20.800+0100] {sql.py:531} INFO - Running statement: 
+        INSERT INTO 
+            dbo.OpenWeatherData 
+                (timestamp, id, country, city, main_temp, temp_min, temp_max,cloudiness, humidity, 
+                wind_speed, rain, main, weather_description, longitude, latitude)
+        SELECT 
+            s.timestamp, s.id, s.country, s.city, s.main_temp, s.temp_min, s.temp_max,s.cloudiness, s.humidity, 
+            s.wind_speed, s.rain, s.main, s.weather_description, s.longitude, s.latitude
+        FROM 
+            dbo.OpenWeatherData_staging s
+        WHERE NOT EXISTS(
+            SELECT 1
+            FROM 
+                dbo.OpenWeatherData t
+            WHERE 
+                t.timestamp = s.timestamp
+                AND t.id = s.id
+                )
+                AND s.timestamp IS NOT NULL;            
+        
+        , parameters: None
+[2024-10-06T10:02:20.892+0100] {sql.py:540} INFO - Rows affected: 50
+[2024-10-06T10:02:20.989+0100] {python.py:240} INFO - Done. Returned value was: Table sucessful populated
+[2024-10-06T10:02:21.098+0100] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-06T10:02:21.099+0100] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=open_weather_DAG, task_id=Load_to_DB, run_id=scheduled__2024-10-06T08:00:00+00:00, execution_date=20241006T080000, start_date=20241006T090219, end_date=20241006T090221
+[2024-10-06T10:02:21.160+0100] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-06T10:02:21.225+0100] {taskinstance.py:3900} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2024-10-06T10:02:21.236+0100] {local_task_job_runner.py:245} INFO - ::endgroup::

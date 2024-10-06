@@ -1,0 +1,22 @@
+erreduarte
+*** Found local files:
+***   * /home/erreduarte/airflow/logs/dag_id=open_weather_DAG/run_id=scheduled__2024-10-06T08:00:00+00:00/task_id=Process_data/attempt=1.log
+[2024-10-06T10:00:25.487+0100] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-06T10:00:25.544+0100] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: open_weather_DAG.Process_data scheduled__2024-10-06T08:00:00+00:00 [queued]>
+[2024-10-06T10:00:25.565+0100] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: open_weather_DAG.Process_data scheduled__2024-10-06T08:00:00+00:00 [queued]>
+[2024-10-06T10:00:25.565+0100] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2024-10-06T10:00:25.593+0100] {taskinstance.py:2888} INFO - Executing <Task(_PythonDecoratedOperator): Process_data> on 2024-10-06 08:00:00+00:00
+[2024-10-06T10:00:25.597+0100] {standard_task_runner.py:72} INFO - Started process 2549201 to run task
+[2024-10-06T10:00:25.600+0100] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'open_weather_DAG', 'Process_data', 'scheduled__2024-10-06T08:00:00+00:00', '--job-id', '752', '--raw', '--subdir', 'DAGS_FOLDER/DAG_OPEN_WEATHER.py', '--cfg-path', '/tmp/tmp33c_bn4s']
+[2024-10-06T10:00:25.601+0100] {standard_task_runner.py:105} INFO - Job 752: Subtask Process_data
+[2024-10-06T10:00:25.740+0100] {task_command.py:467} INFO - Running <TaskInstance: open_weather_DAG.Process_data scheduled__2024-10-06T08:00:00+00:00 [running]> on host erreduarte
+[2024-10-06T10:00:26.033+0100] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='renanduarte' AIRFLOW_CTX_DAG_ID='open_weather_DAG' AIRFLOW_CTX_TASK_ID='Process_data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-06T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-06T08:00:00+00:00'
+[2024-10-06T10:00:26.034+0100] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-06T10:00:29.825+0100] {logging_mixin.py:190} INFO - JSON successfully normalized
+[2024-10-06T10:00:31.840+0100] {logging_mixin.py:190} INFO - Spark Dataframe sucessfully created
+[2024-10-06T10:00:44.548+0100] {python.py:240} INFO - Done. Returned value was: Data sucessfully processed and saved in weather-data/bronze_file
+[2024-10-06T10:00:44.653+0100] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-06T10:00:44.654+0100] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=open_weather_DAG, task_id=Process_data, run_id=scheduled__2024-10-06T08:00:00+00:00, execution_date=20241006T080000, start_date=20241006T090025, end_date=20241006T090044
+[2024-10-06T10:00:44.723+0100] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-06T10:00:44.793+0100] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-10-06T10:00:44.808+0100] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,22 @@
+erreduarte
+*** Found local files:
+***   * /home/erreduarte/airflow/logs/dag_id=open_weather_DAG/run_id=scheduled__2024-10-06T08:00:00+00:00/task_id=Transform_Data/attempt=1.log
+[2024-10-06T10:00:46.014+0100] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-06T10:00:46.076+0100] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: open_weather_DAG.Transform_Data scheduled__2024-10-06T08:00:00+00:00 [queued]>
+[2024-10-06T10:00:46.096+0100] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: open_weather_DAG.Transform_Data scheduled__2024-10-06T08:00:00+00:00 [queued]>
+[2024-10-06T10:00:46.096+0100] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2024-10-06T10:00:46.128+0100] {taskinstance.py:2888} INFO - Executing <Task(_PythonDecoratedOperator): Transform_Data> on 2024-10-06 08:00:00+00:00
+[2024-10-06T10:00:46.135+0100] {standard_task_runner.py:72} INFO - Started process 2549547 to run task
+[2024-10-06T10:00:46.139+0100] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'open_weather_DAG', 'Transform_Data', 'scheduled__2024-10-06T08:00:00+00:00', '--job-id', '753', '--raw', '--subdir', 'DAGS_FOLDER/DAG_OPEN_WEATHER.py', '--cfg-path', '/tmp/tmpgwgif79h']
+[2024-10-06T10:00:46.140+0100] {standard_task_runner.py:105} INFO - Job 753: Subtask Transform_Data
+[2024-10-06T10:00:46.311+0100] {task_command.py:467} INFO - Running <TaskInstance: open_weather_DAG.Transform_Data scheduled__2024-10-06T08:00:00+00:00 [running]> on host erreduarte
+[2024-10-06T10:00:46.566+0100] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='renanduarte' AIRFLOW_CTX_DAG_ID='open_weather_DAG' AIRFLOW_CTX_TASK_ID='Transform_Data' AIRFLOW_CTX_EXECUTION_DATE='2024-10-06T08:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-06T08:00:00+00:00'
+[2024-10-06T10:00:46.567+0100] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-06T10:00:58.097+0100] {logging_mixin.py:190} INFO - File held in memory
+[2024-10-06T10:00:58.149+0100] {base.py:84} INFO - Retrieving connection 'azure_blob_storage'
+[2024-10-06T10:00:58.774+0100] {python.py:240} INFO - Done. Returned value was: Silver file saved in blob storage.
+[2024-10-06T10:00:58.871+0100] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-06T10:00:58.872+0100] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=open_weather_DAG, task_id=Transform_Data, run_id=scheduled__2024-10-06T08:00:00+00:00, execution_date=20241006T080000, start_date=20241006T090046, end_date=20241006T090058
+[2024-10-06T10:00:58.926+0100] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-06T10:00:59.006+0100] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-10-06T10:00:59.009+0100] {local_task_job_runner.py:245} INFO - ::endgroup::
