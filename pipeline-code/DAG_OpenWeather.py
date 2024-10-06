@@ -16,7 +16,7 @@ import io
     schedule = '@hourly',
     start_date = datetime(2024, 10, 3),
     catchup= False,
-    default_args={"owner": "renanduarte",
+    default_args={"owner": "owner_name",
                   },
     description="Extract data from OpenWeatherAPI, transform and load it to Azure SQL Database",
     tags = ["OpenWeatherAPI", "AzureSQLDatabase", "BlobStorage"]
