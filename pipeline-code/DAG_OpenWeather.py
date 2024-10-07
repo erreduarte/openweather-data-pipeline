@@ -155,7 +155,8 @@ def open_weather_DAG():
                                                                     
                             """
                             )
-                
+
+                #Spark doesn`t allow to save the CSV files with a chosen name. In order to facilitate further automation, transform the dataframe into a Pandas DF.
                 df_final = df_selected.toPandas()
                         
                 #Hold csv file in memory to load in Blob Storage
