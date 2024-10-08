@@ -53,3 +53,6 @@ This section provides an overview of the outcome data processed during the proje
 3. A sample result of the final database query, illustrating how the transformed data was loaded into the database and can be queried.
    ![Database_View](.data_view/Azure_DB_Overview.png)
 
+### Config.json
+A configuration file with keys and secrets is required to access resources such as Blob Storage and the Database. A template can be found here: ![Config.json](config/config.json)
+
