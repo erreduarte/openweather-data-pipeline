@@ -1,0 +1,30 @@
+{
+    "spark_operator": {"extract": "path/to/SparkOperator_ExtractData.py",
+    "transform": "path/to/SparkOperator_TransformData.py"
+
+    },
+    
+    "api_info": {
+
+        "url_template" : "https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric",
+        
+        "city_names": ["Tirana", "Andorra la Vella", "Yerevan", "Vienna", "Baku", "Minsk", "Brussels", "Sarajevo", "Sofia", "Zagreb", "Nicosia", 
+        "Prague", "Copenhagen", "Tallinn", "Helsinki", "Paris", "Tbilisi", "Berlin", "Athens", "Budapest", "Reykjavik", "Dublin", "Rome", "Nur-Sultan", 
+        "Riga", "Vaduz", "Vilnius", "Luxembourg", "Valletta", "Chisinau", "Monaco", "Podgorica", "Amsterdam", "Skopje", "Oslo", "Warsaw", "Lisbon", 
+        "Bucharest", "Moscow", "San Marino", "Belgrade", "Bratislava", "Ljubljana", "Madrid", "Stockholm", "Bern", "Ankara", "Kyiv", "London", "Vatican City"],             
+        
+        "API_key": "key_value"
+         
+    },
+
+    "blob_access": { 
+        
+        "blob_container": "container-name",
+        "blob_account": "account-name",
+        "SAS_key": "SAS_KEY_VALUE"
+    },
+
+    "azure_db": {"conn_id": "connection-name"}
+
+
+}
